@@ -203,8 +203,8 @@
   <distributionManagement>
     <repository>
       <id>github</id>
-      <name>Jarl core Maven package</name>
-      <url>https://maven.pkg.github.com/fleskesvor/jarl</url>
+      <name>Jarl Core Maven package</name>
+      <url>https://maven.pkg.github.com/borgeby/jarl</url>
     </repository>
   </distributionManagement>
   <properties>

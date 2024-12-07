@@ -45,8 +45,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            // FIXME: Use URI to Jarl repo
-            url = "https://maven.pkg.github.com/fleskesvor/jarl"
+            url = "https://maven.pkg.github.com/borgeby/jarl"
             credentials {
                 username = '_'
                 password = System.getenv("GITHUB_TOKEN")

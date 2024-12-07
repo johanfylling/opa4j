@@ -63,6 +63,5 @@
                          :source-paths ["src/main/cljs" "src/main/cljc" "src/test/cljs" "src/test/cljc"]}}
   :pom-addition ([:distributionManagement [:repository [:id "github"]
                                                        [:name "Jarl Core Maven package"]
-                                                       ;; FIXME: Use URI to Jarl repo
-                                                       [:url "https://maven.pkg.github.com/fleskesvor/jarl"]]]
+                                                       [:url "https://maven.pkg.github.com/borgeby/jarl"]]]
                  [:properties ["maven.compiler.source" "17"] ["maven.compiler.target" "17"]]))
