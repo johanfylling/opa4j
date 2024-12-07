@@ -11,7 +11,7 @@ version '0.1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    mavenLocal()
+    maven { url 'https://repo.clojars.org/' }
     maven {
         url 'https://maven.pkg.github.com/fleskesvor/jarl'
         credentials {
@@ -19,6 +19,7 @@ repositories {
             password = System.getenv("GITHUB_TOKEN")
         }
     }
+    mavenLocal()
 }
 
 dependencies {
