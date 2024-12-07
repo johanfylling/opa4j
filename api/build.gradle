@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
@@ -10,10 +11,11 @@ version '0.1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    implementation files("../core/target/jarl-${version}-standalone.jar")
+    implementation "by.borge.jarl:jarl:${version}"
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.0'
@@ -24,10 +26,22 @@ test {
     useJUnitPlatform()
 }
 
-task lein(type: Exec) {
-    workingDir("../core")
-    commandLine 'lein', 'uberjar'
-    inputs.dir '../core/src'
-    outputs.files "../core/target/jarl-${version}-standalone.jar"
+
+publishing {
+    publications {
+        jarlApi(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            // FIXME: Use URI to Jarl repo
+            url = "https://maven.pkg.github.com/fleskesvor/jarl"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
-tasks.compileJava.dependsOn lein
