@@ -14,7 +14,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./core
-        run: lein deps
+        run: lein uberjar
 
       - name: Create pom
         working-directory: ./core
