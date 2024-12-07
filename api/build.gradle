@@ -8,6 +8,7 @@ targetCompatibility = JavaVersion.VERSION_11
 
 group 'by.borge.jarl'
 version '0.1.0-SNAPSHOT'
+description 'Jarl JVM API'
 
 repositories {
     mavenCentral()
@@ -15,7 +16,7 @@ repositories {
     maven {
         url 'https://maven.pkg.github.com/fleskesvor/jarl'
         credentials {
-            username = System.getenv("GITHUB_ACTOR")
+            username = '_'
             password = System.getenv("GITHUB_TOKEN")
         }
     }
@@ -47,7 +48,7 @@ publishing {
             // FIXME: Use URI to Jarl repo
             url = "https://maven.pkg.github.com/fleskesvor/jarl"
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
+                username = '_'
                 password = System.getenv("GITHUB_TOKEN")
             }
         }
