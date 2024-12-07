@@ -7,7 +7,7 @@ on:
       - 'feature/maven-artifacts' # FIXME: Remove when done
 
 jobs:
-  generate-metrics:
+  publish-artifacts:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
