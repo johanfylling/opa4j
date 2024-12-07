@@ -1,0 +1,28 @@
+name: Publish Maven artifacts
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'feature/maven-artifacts' # FIXME: Remove when done
+
+jobs:
+  generate-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create pom
+        working-directory: ./core
+        run: lein pom
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Publish package
+        working-directory: ./core
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
