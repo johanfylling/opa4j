@@ -12,6 +12,12 @@ version '0.1.0-SNAPSHOT'
 repositories {
     mavenCentral()
     mavenLocal()
+    maven("https://maven.pkg.github.com/fleskesvor/jarl") {
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 dependencies {
