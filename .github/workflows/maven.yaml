@@ -50,4 +50,5 @@ jobs:
         working-directory: ./api
         run: ./gradlew publish
         env:
+          GITHUB_ACTOR: ${{ vars.GITHUB_ACTOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
