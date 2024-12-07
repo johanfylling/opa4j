@@ -1,4 +1,4 @@
-(defproject jarl "0.1.0-SNAPSHOT"
+(defproject by.borge.jarl/jarl "0.1.0-SNAPSHOT"
   :description "Jarl, The JVM Alternative for the Rego Language"
   :url "https://github.com/borgeby/jarl"
   :license {:name "Apache License Version 2.0"
