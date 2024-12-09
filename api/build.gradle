@@ -39,6 +39,8 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+tasks.jar.dependsOn compileJava
+tasks.publish.dependsOn jar
 
 publishing {
     publications {
