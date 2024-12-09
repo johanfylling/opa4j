@@ -6,35 +6,8 @@ on:
       - 'main'
 
 jobs:
-  publish-core-artifact:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install dependencies
-        working-directory: ./core
-        run: lein uberjar
-
-      - name: Create pom
-        working-directory: ./core
-        run: lein pom
-
-      - uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: 'maven'
-
-      - name: Publish package
-        working-directory: ./core
-        run: mvn --batch-mode deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   publish-api-artifact:
     runs-on: ubuntu-latest
-    needs:
-      - publish-core-artifact
     steps:
       - uses: actions/checkout@v4
 

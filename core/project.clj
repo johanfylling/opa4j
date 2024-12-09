@@ -1,4 +1,4 @@
-(defproject by.borge.jarl/jarl "0.1.0-SNAPSHOT"
+(defproject jarl "0.1.0-SNAPSHOT"
   :description "Jarl, The JVM Alternative for the Rego Language"
   :url "https://github.com/borgeby/jarl"
   :license {:name "Apache License Version 2.0"
@@ -60,8 +60,4 @@
                                          ; more recent version provided by shadow-cljs
                                          :exclusions [com.google.javascript/closure-compiler-unshaded]]
                                         [thheller/shadow-cljs "2.20.14"]]
-                         :source-paths ["src/main/cljs" "src/main/cljc" "src/test/cljs" "src/test/cljc"]}}
-  :pom-addition ([:distributionManagement [:repository [:id "github"]
-                                                       [:name "Jarl Core Maven package"]
-                                                       [:url "https://maven.pkg.github.com/borgeby/jarl"]]]
-                 [:properties ["maven.compiler.source" "17"] ["maven.compiler.target" "17"]]))
+                         :source-paths ["src/main/cljs" "src/main/cljc" "src/test/cljs" "src/test/cljc"]}})
