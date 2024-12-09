@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
@@ -7,6 +8,7 @@ targetCompatibility = JavaVersion.VERSION_11
 
 group 'by.borge.jarl'
 version '0.1.0-SNAPSHOT'
+description 'Jarl JVM API'
 
 repositories {
     mavenCentral()
@@ -31,3 +33,29 @@ task lein(type: Exec) {
     outputs.files "../core/target/jarl-${version}-standalone.jar"
 }
 tasks.compileJava.dependsOn lein
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+tasks.jar.dependsOn compileJava
+tasks.publish.dependsOn jar
+
+publishing {
+    publications {
+        jarlApi(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/borgeby/jarl"
+            credentials {
+                username = '_'
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}

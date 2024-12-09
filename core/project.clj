@@ -60,4 +60,5 @@
                                          ; more recent version provided by shadow-cljs
                                          :exclusions [com.google.javascript/closure-compiler-unshaded]]
                                         [thheller/shadow-cljs "2.20.14"]]
-                         :source-paths ["src/main/cljs" "src/main/cljc" "src/test/cljs" "src/test/cljc"]}})
+                         :source-paths ["src/main/cljs" "src/main/cljc" "src/test/cljs" "src/test/cljc"]}
+             :uberjar {:uberjar-exclusions [#"org/slf4j"]}})
